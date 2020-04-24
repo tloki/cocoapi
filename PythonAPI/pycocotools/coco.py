@@ -84,6 +84,8 @@ class COCO:
             dataset = json.load(open(annotation_file, 'r'))
             assert type(dataset)==dict, 'annotation file format {} not supported'.format(type(dataset))
             print('Done (t={:0.2f}s)'.format(time.time()- tic))
+            print(
+                "category names: {}".format([e["name"] for e in sorted(dataset["categories"], key=lambda x: x["id"])]))
             self.dataset = dataset
             self.createIndex()
 
